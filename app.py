@@ -46,7 +46,7 @@ data = response.json()
 fare = round(float(data['fare']),2)
 
 output_text = f"""
-      Your taxi fare will approximately be {fare} USD.
+      Your taxi fare will approximately be <b>{fare} USD</b>.
  """
 
 st.write(output_text)
