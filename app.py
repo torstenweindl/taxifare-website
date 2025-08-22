@@ -2,6 +2,8 @@ import streamlit as st
 import datetime
 import requests
 import pandas as pd
+from streamlit_folium import st_folium
+import folium
 
 url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
 today = datetime.date.today()
@@ -69,13 +71,33 @@ map_data = pd.DataFrame(map_data_dict)
 
 st.map(map_data)
 
+###########################
 
-# just hardcoding temporarily
-# params['pickup_datetime'] = '2014-07-06 19:18:00'
+# Erstelle ein folium-Kartenobjekt
+m = folium.Map(location=[48.8566, 2.3522], zoom_start=12)
 
+# Füge einen Marker hinzu, um einen Startpunkt zu haben (optional)
+folium.Marker(
+    [48.8566, 2.3522],
+    popup="Paris",
+    tooltip="Paris"
+).add_to(m)
 
+# Rendere die Karte und erfasse das Klick-Ereignis
+output = st_folium(
+    m,
+    center=[48.8566, 2.3522],
+    zoom=12,
+    key="new_map",
+    feature_group_to_add=None,
+    width=700,
+    height=500
+)
 
-
-
-# st.write(data)
-# st.write(response.status_code)
+# Überprüfe, ob eine Klick-Koordinate vorhanden ist
+if output:
+    last_clicked = output.get('last_clicked')
+    if last_clicked:
+        lat = last_clicked.get('lat')
+        lon = last_clicked.get('lng')
+        st.write(f"Koordinaten des letzten Klicks: Latitude={lat}, Longitude={lon}")
