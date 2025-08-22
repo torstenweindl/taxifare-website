@@ -40,8 +40,12 @@ params['passenger_count'] = passenger_count
 
 response = requests.get(url, params=params)
 data = response.json()
-st.write(data)
-st.write(response.status_code)
+# st.write(data)
+# st.write(response.status_code)
+
+output = f"""
+        Your taxi fare will approximately be {data['fare']} USD.
+    """
 
 
 
