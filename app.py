@@ -53,11 +53,11 @@ with col2:
     response = requests.get(url, params=params)
     data = response.json()
     fare = round(float(data['fare']),2)
-    output_text = f"""
-           Your taxi fare will approximately be:
-    """
+    # output_text = f"""
+    #        Your taxi fare will approximately be:
+    # """
     # st.write(output_text)
-    st.markdown(f"# {output_text} ## {fare} USD")
+    st.markdown(f"## Your taxi fare will approximately be: ## {fare} USD")
 
 
 
