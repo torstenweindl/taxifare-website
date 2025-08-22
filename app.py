@@ -19,10 +19,16 @@ with col2:
     time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
     date_time = str(date) + " " + str(time)
 
-pickup_longitude = st.number_input('Please insert PICKUP longitude')
-pickup_latitude = st.number_input('Please insert PICKUP latitude')
-dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
-dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+    pickup_longitude = st.number_input('Please insert PICKUP longitude')
+with col2:
+    pickup_latitude = st.number_input('Please insert PICKUP latitude')
+with col3:
+    dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
+with col4:
+    dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 # passenger_count = st.number_input('Please tell me the number of passengers')
 
 passenger_count = st.slider('Select number of passengers', 1, 10, 1)
