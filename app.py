@@ -1,6 +1,10 @@
 import streamlit as st
 import datetime
 
+st.markdown("""
+    # Wanna take a ride?
+""")
+
 date = st.date_input(
     "Please tell me the pickup date:",
     datetime.date(2019, 7, 6))
@@ -11,7 +15,7 @@ pickup_longitude = st.number_input('Please insert PICKUP longitude')
 pickup_latitude = st.number_input('Please insert PICKUP latitude')
 dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
 dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
-passenger_count = st.number_input('Please tell me the number of passengers')
+# passenger_count = st.number_input('Please tell me the number of passengers')
 
 passenger_count = st.slider('Select number of passengers', 1, 10, 1)
 
