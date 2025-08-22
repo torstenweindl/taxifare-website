@@ -24,16 +24,16 @@ col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     # pickup_longitude = st.number_input('PICKUP longitude', value=-73.950655)
-    pickup_longitude = st.slider('PICKUP longitude', -74, -73, 0.01)
+    pickup_longitude = st.slider('PICKUP longitude', -74, -73, 1)
 with col2:
     # pickup_latitude = st.number_input('PICKUP latitude', value=40.783282)
-    pickup_latitude = st.slider('PICKUP latitude', 40, 41, 0.01)
+    pickup_latitude = st.slider('PICKUP latitude', 40, 41, 1)
 with col3:
     # dropoff_longitude = st.number_input('DROPOFF longitude', value=-73.984365)
-    dropoff_longitude = st.slider('DROPOFF longitude', -74, -73, 0.01)
+    dropoff_longitude = st.slider('DROPOFF longitude', -74, -73, 1)
 with col4:
     # dropoff_latitude = st.number_input('DROPOFF latitude', value=40.769802)
-    dropoff_latitude = st.slider('DROPOFF latitude', 40, 41, 0.01)
+    dropoff_latitude = st.slider('DROPOFF latitude', 40, 41, 1)
 # passenger_count = st.number_input('Please tell me the number of passengers')
 
 passenger_count = st.slider('# Passengers', 1, 10, 1)
