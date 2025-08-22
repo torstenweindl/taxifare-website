@@ -43,7 +43,13 @@ params['dropoff_latitude'] = dropoff_latitude
 params['passenger_count'] = passenger_count
 
 
-map_data = pd.DataFrame(pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude)
+map_data_dict = {
+    'lat': [pickup_latitude, dropoff_latitude],
+    'lon': [pickup_longitude, dropoff_longitude]
+}
+map_data = pd.DataFrame(map_data_dict)
+
+st.map(map_data)
 
 
 # just hardcoding temporarily
