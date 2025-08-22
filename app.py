@@ -13,7 +13,7 @@ date = st.date_input(
 
 time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
 
-date_time = date + " " + time
+date_time = str(date) + " " + str(time)
 
 pickup_longitude = st.number_input('Please insert PICKUP longitude')
 pickup_latitude = st.number_input('Please insert PICKUP latitude')
