@@ -24,6 +24,7 @@ col1, col2 = st.columns(2)
 with col1:
     passenger_count = st.number_input('# Passengers', value=1)
 with col2:
+    pass
 
 col1, col2, col3, col4 = st.columns(4)
 
