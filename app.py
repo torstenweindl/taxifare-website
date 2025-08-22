@@ -25,6 +25,11 @@ with col1:
     passenger_count = st.number_input('# Passengers', value=1)
 with col2:
 
+    pickup_longitude = -73.950
+    pickup_latitude = 40.783282
+    dropoff_longitude = -73.984365
+    dropoff_latitude = 40.769802
+
     params = {}
     params['pickup_datetime'] = date_time
     params['pickup_longitude'] = pickup_longitude
