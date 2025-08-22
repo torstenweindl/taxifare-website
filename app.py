@@ -12,7 +12,7 @@ st.markdown("""
     ## Wanna take a ride?
 """)
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     date = st.date_input(
@@ -22,11 +22,8 @@ with col2:
     time = st.time_input('Please tell me the pickup time:', datetime.time(8, 00))
     date_time = str(date) + " " + str(time)
 
-col1, col2 = st.columns(2)
-with col1:
+with col3:
     passenger_count = st.number_input('# Passengers', value=1)
-with col2:
-    pass
 
 # col1, col2, col3, col4 = st.columns(4)
 
@@ -85,7 +82,7 @@ if st.session_state.point_b:
 output = st_folium(
     m,
     center=[40.783282, -73.950],
-    zoom=12,
+    zoom=14,
     key="multi_click_map",
     width=700,
     height=500
