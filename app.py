@@ -16,10 +16,10 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     date = st.date_input(
-        "Please tell me the pickup date:", today)
+        "Pickup date:", today)
 
 with col2:
-    time = st.time_input('Please tell me the pickup time:', datetime.time(8, 00))
+    time = st.time_input('Pickup time:', datetime.time(8, 00))
     date_time = str(date) + " " + str(time)
 
 with col3:
@@ -122,6 +122,7 @@ if st.session_state.point_a and st.session_state.point_b:
     #        Your taxi fare will approximately be:
     # """
     # st.write(output_text)
-    st.markdown(f"##### Your taxi fare will approximately be:")
-    st.markdown(f"## **{fare} USD**")
+    st.markdown(f"##### Your taxi fare will approximately be:
+                ## **{fare} USD**")
+
     # st.markdown(f"")
