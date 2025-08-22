@@ -73,50 +73,54 @@ st.map(map_data)
 
 ###################
 
+# 1. Initialisieren des Session State
+if 'point_a' not in st.session_state:
+    st.session_state.point_a = None
+if 'point_b' not in st.session_state:
+    st.session_state.point_b = None
+
+
 # Erstelle ein folium-Kartenobjekt
-m = folium.Map(location=[48.8566, 2.3522], zoom_start=12)
+m = folium.Map(location=[40.783282, -73.950], zoom_start=12)
 
-# Füge einen Marker hinzu, um einen Startpunkt zu haben (optional)
-folium.Marker(
-    [48.8566, 2.3522],
-    popup="Paris",
-    tooltip="Paris",
-    icon=folium.Icon(icon='info-sign')
-).add_to(m)
+if st.session_state.point_a:
+    folium.Marker(
+        [st.session_state.point_a['lat'], st.session_state.point_a['lng']],
+        popup="Punkt A",
+        tooltip="Punkt A"
+    ).add_to(m)
 
-# Rendere die Karte und erfasse das Klick-Ereignis
-output = st_folium(
-    m,
-    center=[48.8566, 2.3522],
-    zoom=12,
-    key="new_map",
-    feature_group_to_add=None,
-    width=700,
-    height=500
-)
-
-last_clicked = output.get('last_clicked')
-
-folium.Marker(
-    [last_clicked.get('lat'), last_clicked.get('lng')],
-    popup="Paris",
-    tooltip="Paris",
-    icon=folium.Icon(icon='info-sign')
-).add_to(m)
+if st.session_state.point_b:
+    folium.Marker(
+        [st.session_state.point_b['lat'], st.session_state.point_b['lng']],
+        popup="Punkt B",
+        tooltip="Punkt B",
+        icon=folium.Icon(color="red")
+    ).add_to(m)
 
 output = st_folium(
     m,
     center=[48.8566, 2.3522],
     zoom=12,
-    key="new_map",
-    feature_group_to_add=None,
+    key="multi_click_map",
     width=700,
     height=500
 )
 
-if output:
-    last_clicked = output.get('last_clicked')
+if output and 'last_clicked' in output:
+    last_clicked = output['last_clicked']
     if last_clicked:
-        lat = last_clicked.get('lat')
-        lon = last_clicked.get('lng')
-        st.write(f"Koordinaten des letzten Klicks: Latitude={lat}, Longitude={lon}")
+        if not st.session_state.point_a:
+            st.session_state.point_a = last_clicked
+            st.warning("Punkt A wurde ausgewählt. Bitte wählen Sie jetzt Punkt B aus.")
+            st.rerun() # Führt das Skript erneut aus, um den neuen Zustand zu reflektieren
+        elif not st.session_state.point_b:
+            st.session_state.point_b = last_clicked
+            st.success("Punkt B wurde ausgewählt. Beide Punkte sind nun gespeichert.")
+            st.rerun()
+
+st.header("Gespeicherte Koordinaten")
+if st.session_state.point_a:
+    st.write(f"**Punkt A:** Latitude={st.session_state.point_a['lat']}, Longitude={st.session_state.point_a['lng']}")
+if st.session_state.point_b:
+    st.write(f"**Punkt B:** Latitude={st.session_state.point_b['lat']}, Longitude={st.session_state.point_b['lng']}")
