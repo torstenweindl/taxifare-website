@@ -43,7 +43,7 @@ data = response.json()
 # st.write(data)
 # st.write(response.status_code)
 
-st.write(data['fare'])
+st.write(int(data['fare']))
 
 # fare = ROUND(float(data['fare']),0)
 
