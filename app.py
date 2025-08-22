@@ -118,12 +118,13 @@ params['dropoff_longitude'] = st.session_state.point_b['lng']
 params['dropoff_latitude'] = st.session_state.point_b['lat']
 params['passenger_count'] = passenger_count
 
-response = requests.get(url, params=params)
-data = response.json()
-fare = round(float(data['fare']),2)
-# output_text = f"""
-#        Your taxi fare will approximately be:
-# """
-# st.write(output_text)
-st.markdown(f"Your taxi fare will approximately be: **{fare} USD**")
-# st.markdown(f"")
+if st.session_state.point_a and st.session_state.point_b:
+    response = requests.get(url, params=params)
+    data = response.json()
+    fare = round(float(data['fare']),2)
+    # output_text = f"""
+    #        Your taxi fare will approximately be:
+    # """
+    # st.write(output_text)
+    st.markdown(f"Your taxi fare will approximately be: **{fare} USD**")
+    # st.markdown(f"")
