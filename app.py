@@ -25,16 +25,16 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     # pickup_longitude = st.number_input('PICKUP longitude', value=-73.950655)
     # pickup_longitude = st.slider('PICKUP longitude', min_value=-74, max_value=-73, value=-73.950, step=0.001)
-    pickup_longitude = st.slider('PICKUP longitude', min_value=-74.0, max_value=-73.0, step=0.000001)
+    pickup_longitude = st.slider('PICKUP longitude', min_value=-74.0, max_value=-73.0, step=0.000001, value=-73.950)
 with col2:
     # pickup_latitude = st.number_input('PICKUP latitude', value=40.783282)
-    pickup_latitude = st.slider('PICKUP latitude', 40, 41, 1)
+    pickup_latitude = st.slider('PICKUP latitude', min_value=40, max_value=41, step=0.000001, value=40.783282)
 with col3:
     # dropoff_longitude = st.number_input('DROPOFF longitude', value=-73.984365)
-    dropoff_longitude = st.slider('DROPOFF longitude', -74, -73, 1)
+    dropoff_longitude = st.slider('DROPOFF longitude', min_value=-74.0, max_value=-73.0, step=0.000001, value=-73.984365)
 with col4:
     # dropoff_latitude = st.number_input('DROPOFF latitude', value=40.769802)
-    dropoff_latitude = st.slider('DROPOFF latitude', 40, 41, 1)
+    dropoff_latitude = st.slider('DROPOFF latitude', min_value=40, max_value=41, step=0.000001, value=40.769802)
 # passenger_count = st.number_input('Please tell me the number of passengers')
 
 passenger_count = st.slider('# Passengers', 1, 10, 1)
@@ -68,12 +68,12 @@ data = response.json()
 # st.write(data)
 # st.write(response.status_code)
 
-### fare = round(float(data['fare']),2)
+fare = round(float(data['fare']),2)
 
-### output_text = f"""
-###       Your taxi fare will approximately be:
-###  """
+output_text = f"""
+       Your taxi fare will approximately be:
+  """
 
-### st.write(output_text)
+st.write(output_text)
 
-### st.markdown(f"# {fare} USD")
+st.markdown(f"# {fare} USD")
