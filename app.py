@@ -7,10 +7,10 @@ date = st.date_input(
 
 time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
 
-pickup_longitude = st.number_input('Please insert pickup_longitude')
-pickup_latitude = st.number_input('Please insert pickup_latitude')
-dropoff_longitude = st.number_input('Please insert dropoff longitude')
-dropoff_latitude = st.number_input('Please insert dropoff_latitude')
+pickup_longitude = st.number_input('Please insert PICKUP longitude')
+pickup_latitude = st.number_input('Please insert PICKUP latitude')
+dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
+dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 passenger_count = st.number_input('Please tell me the number of passengers')
 
 
