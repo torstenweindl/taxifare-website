@@ -54,7 +54,7 @@ with col3:
 
 ###################
 
-st.markdown(f"""Select pickup and dropoff by clicking the map:""")
+st.markdown(f"""Select pickup and dropoff by clicking the map twice (1st click = pickup, 2nd click = dropoff):""")
 
 # 1. Initialisieren des Session State
 if 'point_a' not in st.session_state:
