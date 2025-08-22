@@ -79,7 +79,6 @@ if 'point_a' not in st.session_state:
 if 'point_b' not in st.session_state:
     st.session_state.point_b = None
 
-
 # Erstelle ein folium-Kartenobjekt
 m = folium.Map(location=[40.783282, -73.950], zoom_start=12)
 
@@ -87,7 +86,8 @@ if st.session_state.point_a:
     folium.Marker(
         [st.session_state.point_a['lat'], st.session_state.point_a['lng']],
         popup="Punkt A",
-        tooltip="Punkt A"
+        tooltip="Punkt A",
+        icon=folium.Icon(color="green")
     ).add_to(m)
 
 if st.session_state.point_b:
@@ -95,12 +95,12 @@ if st.session_state.point_b:
         [st.session_state.point_b['lat'], st.session_state.point_b['lng']],
         popup="Punkt B",
         tooltip="Punkt B",
-        icon=folium.Icon(color="red")
+        icon=folium.Icon(color="blue")
     ).add_to(m)
 
 output = st_folium(
     m,
-    center=[48.8566, 2.3522],
+    center=[40.783282, -73.950],
     zoom=12,
     key="multi_click_map",
     width=700,
