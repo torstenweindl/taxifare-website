@@ -1,6 +1,8 @@
 import streamlit as st
 import datetime
 
+url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
+
 st.markdown("""
     # Wanna take a ride?
 """)
@@ -9,11 +11,11 @@ date = st.date_input(
     "Please tell me the pickup date:",
     datetime.date(2019, 7, 6))
 
-print(date)
+# print(date)
 
 time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
 
-print(time)
+# print(time)
 
 pickup_longitude = st.number_input('Please insert PICKUP longitude')
 pickup_latitude = st.number_input('Please insert PICKUP latitude')
@@ -23,14 +25,16 @@ dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 
 passenger_count = st.slider('Select number of passengers', 1, 10, 1)
 
-request = {}
-request['pickup_time']
-request['pickup_longitude'] = pickup_longitude
-request['pickup_latitude'] = pickup_latitude
-request['dropoff_longitude'] = dropoff_longitude
-request['dropoff_latitude'] = dropoff_latitude
-request['pickup_longitude'] = pickup_longitude
-request['passenger_count'] = passenger_count
+params = {}
+params['pickup_time'] = date
+params['pickup_longitude'] = pickup_longitude
+params['pickup_latitude'] = pickup_latitude
+params['dropoff_longitude'] = dropoff_longitude
+params['dropoff_latitude'] = dropoff_latitude
+params['pickup_longitude'] = pickup_longitude
+params['passenger_count'] = passenger_count
+
+response = requests.get(url, params=params)
 
 
 
