@@ -56,8 +56,8 @@ with col2:
     output_text = f"""
            Your taxi fare will approximately be:
     """
-    st.write(output_text)
-    st.markdown(f"## {fare} USD")
+    # st.write(output_text)
+    st.markdown(f"# {output_text} ## {fare} USD")
 
 
 
