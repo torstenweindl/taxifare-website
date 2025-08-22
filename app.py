@@ -80,7 +80,8 @@ m = folium.Map(location=[48.8566, 2.3522], zoom_start=12)
 folium.Marker(
     [48.8566, 2.3522],
     popup="Paris",
-    tooltip="Paris"
+    tooltip="Paris",
+    icon=folium.Icon(icon='info-sign')
 ).add_to(m)
 
 # Rendere die Karte und erfasse das Klick-Ereignis
