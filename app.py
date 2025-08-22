@@ -54,6 +54,8 @@ with col3:
 
 ###################
 
+st.markdown(f"""Click pickup and dropoff on the map""")
+
 # 1. Initialisieren des Session State
 if 'point_a' not in st.session_state:
     st.session_state.point_a = None
