@@ -40,8 +40,8 @@ params['pickup_time'] = '2014-07-06 19:18:00'
 
 response = requests.get(url, params=params)
 data = response.json()
-print(data)
-print(response.status_code)
+st.write(data)
+st.write(response.status_code)
 
 
 
