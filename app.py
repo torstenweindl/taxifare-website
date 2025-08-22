@@ -118,6 +118,12 @@ if output and 'last_clicked' in output:
             st.session_state.point_b = last_clicked
             st.success("Punkt B wurde ausgewählt. Beide Punkte sind nun gespeichert.")
             st.rerun()
+        else:
+            # Dritter und weitere Klicks: Starte den Zyklus neu
+            st.session_state.point_a = last_clicked
+            st.session_state.point_b = None
+            st.info("Beide Punkte wurden zurückgesetzt. Bitte wählen Sie jetzt Punkt B aus.")
+            st.rerun()
 
 st.header("Gespeicherte Koordinaten")
 if st.session_state.point_a:
