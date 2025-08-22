@@ -84,8 +84,8 @@ output = st_folium(
     center=[40.783282, -73.950],
     zoom=12,
     key="multi_click_map",
-    width=700,
-    height=500
+    width=500,
+    height=350
 )
 
 if output and 'last_clicked' in output:
