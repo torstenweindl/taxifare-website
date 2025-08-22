@@ -1,7 +1,12 @@
 import streamlit as st
+import datetime
 
+date = st.date_input(
+    "Please tell me the pickup date:",
+    datetime.date(2019, 7, 6))
 
-date = st.number_input('Please insert a date')
+time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
+
 pickup_longitude = st.number_input('Please insert pickup_longitude')
 pickup_latitude = st.number_input('Please insert pickup_latitude')
 dropoff_longitude = st.number_input('Please insert dropoff longitude')
