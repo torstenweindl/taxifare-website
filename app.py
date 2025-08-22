@@ -8,12 +8,17 @@ st.markdown("""
     # Wanna take a ride?
 """)
 
+col1, col2 = st.columns(2)
+
+with col1:
+
 date = st.date_input(
     "Please tell me the pickup date:",
     datetime.date(2019, 7, 6))
 
-time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
+with col2:
 
+time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
 date_time = str(date) + " " + str(time)
 
 pickup_longitude = st.number_input('Please insert PICKUP longitude')
