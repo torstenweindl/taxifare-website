@@ -38,16 +38,6 @@ with col2:
     params['dropoff_latitude'] = dropoff_latitude
     params['passenger_count'] = passenger_count
 
-    response = requests.get(url, params=params)
-    data = response.json()
-    fare = round(float(data['fare']),2)
-    # output_text = f"""
-    #        Your taxi fare will approximately be:
-    # """
-    # st.write(output_text)
-    st.markdown(f"Your taxi fare will approximately be:")
-    st.markdown(f"**{fare} USD**")
-
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -64,6 +54,16 @@ with col4:
     # dropoff_latitude = st.number_input('DROPOFF latitude', value=40.769802)
     dropoff_latitude = st.slider('DROPOFF latitude', min_value=40.58, max_value=40.78, step=0.000001, value=40.769802)
 # passenger_count = st.number_input('Please tell me the number of passengers')
+
+response = requests.get(url, params=params)
+data = response.json()
+fare = round(float(data['fare']),2)
+# output_text = f"""
+#        Your taxi fare will approximately be:
+# """
+# st.write(output_text)
+st.markdown(f"Your taxi fare will approximately be: **{fare} USD**")
+# st.markdown(f"")
 
 map_data_dict = {
     'lat': [pickup_latitude, dropoff_latitude],
