@@ -38,10 +38,10 @@ params['passenger_count'] = passenger_count
 params['pickup_time'] = '2014-07-06 19:18:00'
 
 
-
 response = requests.get(url, params=params)
 data = response.json()
 print(data)
+print(response.status_code)
 
 
 
