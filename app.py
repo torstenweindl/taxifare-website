@@ -25,13 +25,19 @@ dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 passenger_count = st.slider('Select number of passengers', 1, 10, 1)
 
 params = {}
-params['pickup_time'] = date_time
+# params['pickup_time'] = date_time
 params['pickup_longitude'] = pickup_longitude
 params['pickup_latitude'] = pickup_latitude
 params['dropoff_longitude'] = dropoff_longitude
 params['dropoff_latitude'] = dropoff_latitude
 params['pickup_longitude'] = pickup_longitude
 params['passenger_count'] = passenger_count
+
+
+# just hardcoding temporarily
+params['pickup_time'] = '2014-07-06 19:18:00'
+
+
 
 response = requests.get(url, params=params)
 data = response.json()
