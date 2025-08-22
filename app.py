@@ -43,10 +43,12 @@ data = response.json()
 # st.write(data)
 # st.write(response.status_code)
 
-fare = ROUND(float(data['fare']),0)
+st.write(data['fare'])
 
-output_text = f"""
-        Your taxi fare will approximately be {fare} USD.
+# fare = ROUND(float(data['fare']),0)
+
+# output_text = f"""
+  #      Your taxi fare will approximately be {fare} USD.
     """
 
-st.write(output_text)
+# st.write(output_text)
