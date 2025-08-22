@@ -14,10 +14,10 @@ col1, col2 = st.columns(2)
 with col1:
     date = st.date_input(
         "Please tell me the pickup date:",
-        datetime.date(2019, 7, 6), value="2025-08-22")
+        datetime.date(2019, 7, 6), value=today)
 
 with col2:
-    time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45), value="08:00")
+    time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45), value=now)
     date_time = str(date) + " " + str(time)
 
 col1, col2, col3, col4 = st.columns(4)
