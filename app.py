@@ -47,6 +47,7 @@ output = f"""
         Your taxi fare will approximately be {data['fare']} USD.
     """
 
+st.write(output)
 
 
 st.markdown('''
