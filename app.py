@@ -13,6 +13,8 @@ dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
 dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 passenger_count = st.number_input('Please tell me the number of passengers')
 
+passenger_count = st.slider('Select number of passengers', 1, 10, 1)
+
 
 st.markdown('''
 Remember that there are several ways to output content into your web page...
