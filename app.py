@@ -96,17 +96,17 @@ if output and 'last_clicked' in output:
     if last_clicked:
         if not st.session_state.point_a:
             st.session_state.point_a = last_clicked
-            st.warning("Punkt A wurde ausgewählt. Bitte wählen Sie jetzt Punkt B aus.")
+            st.warning("Point A set. Please select point B.")
             st.rerun() # Führt das Skript erneut aus, um den neuen Zustand zu reflektieren
         elif not st.session_state.point_b:
             st.session_state.point_b = last_clicked
-            st.success("Punkt B wurde ausgewählt. Beide Punkte sind nun gespeichert.")
+            st.success("Point B set. Prediction is being generated.")
             st.rerun()
         else:
             # Dritter und weitere Klicks: Starte den Zyklus neu
             st.session_state.point_a = last_clicked
             st.session_state.point_b = None
-            st.info("Beide Punkte wurden zurückgesetzt. Bitte wählen Sie jetzt Punkt B aus.")
+            # st.info("Beide Punkte wurden zurückgesetzt. Bitte wählen Sie jetzt Punkt B aus.")
             st.rerun()
 
 
@@ -125,5 +125,5 @@ if st.session_state.point_a and st.session_state.point_b:
     #        Your taxi fare will approximately be:
     # """
     # st.write(output_text)
-    st.markdown(f"Your taxi fare will approximately be: **{fare} USD**")
+    st.markdown(f"## Your taxi fare will approximately be: **{fare} USD**")
     # st.markdown(f"")
