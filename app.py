@@ -104,6 +104,16 @@ folium.Marker(
     icon=folium.Icon(icon='info-sign')
 ).add_to(m)
 
+output = st_folium(
+    m,
+    center=[48.8566, 2.3522],
+    zoom=12,
+    key="new_map",
+    feature_group_to_add=None,
+    width=700,
+    height=500
+)
+
 if output:
     last_clicked = output.get('last_clicked')
     if last_clicked:
