@@ -66,23 +66,23 @@ m = folium.Map(location=[40.783282, -73.950], zoom_start=12)
 if st.session_state.point_a:
     folium.Marker(
         [st.session_state.point_a['lat'], st.session_state.point_a['lng']],
-        popup="Punkt A",
-        tooltip="Punkt A",
+        popup="Point A",
+        tooltip="Point A",
         icon=folium.Icon(color="green")
     ).add_to(m)
 
 if st.session_state.point_b:
     folium.Marker(
         [st.session_state.point_b['lat'], st.session_state.point_b['lng']],
-        popup="Punkt B",
-        tooltip="Punkt B",
+        popup="Point B",
+        tooltip="Point B",
         icon=folium.Icon(color="blue")
     ).add_to(m)
 
 output = st_folium(
     m,
     center=[40.783282, -73.950],
-    zoom=12,
+    zoom=13,
     key="multi_click_map",
     width=700,
     height=400
@@ -122,5 +122,6 @@ if st.session_state.point_a and st.session_state.point_b:
     #        Your taxi fare will approximately be:
     # """
     # st.write(output_text)
-    st.markdown(f"## Your taxi fare will approximately be: **{fare} USD**")
+    st.markdown(f"##### Your taxi fare will approximately be:")
+    st.markdown(f"## **{fare} USD**")
     # st.markdown(f"")
