@@ -7,7 +7,7 @@ url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
 today = datetime.date.today()
 
 st.markdown("""
-    # Wanna take a ride?
+    ## Wanna take a ride?
 """)
 
 col1, col2 = st.columns(2)
@@ -57,7 +57,7 @@ with col2:
            Your taxi fare will approximately be:
     """
     st.write(output_text)
-    st.markdown(f"# {fare} USD")
+    st.markdown(f"## {fare} USD")
 
 
 
