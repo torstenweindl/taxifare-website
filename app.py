@@ -95,6 +95,15 @@ output = st_folium(
     height=500
 )
 
+last_clicked = output.get('last_clicked')
+
+folium.Marker(
+    [last_clicked.get('lat'), last_clicked.get('lng')],
+    popup="Paris",
+    tooltip="Paris",
+    icon=folium.Icon(icon='info-sign')
+).add_to(m)
+
 if output:
     last_clicked = output.get('last_clicked')
     if last_clicked:
