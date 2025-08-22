@@ -4,6 +4,7 @@ import requests
 import pandas as pd
 
 url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
+today = datetime.date.today()
 
 st.markdown("""
     # Wanna take a ride?
