@@ -123,6 +123,6 @@ if st.session_state.point_a and st.session_state.point_b:
     # """
     # st.write(output_text)
     st.markdown(f"""Your taxi fare will approximately be:
-                ### **USD {fare}**""", unsafe_allow_html=True)
+                ### USD {fare}""")
 
     # st.markdown(f"")
