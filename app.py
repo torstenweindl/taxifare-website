@@ -45,8 +45,8 @@ with col2:
     #        Your taxi fare will approximately be:
     # """
     # st.write(output_text)
-    st.markdown(f"Your taxi fare will approximately be:")
-    st.markdown(f"### {fare} USD")
+    st.markdown(f"Your taxi fare will approximately be: {fare} USD")
+    # st.markdown(f"### {fare} USD")
 
 col1, col2, col3, col4 = st.columns(4)
 
