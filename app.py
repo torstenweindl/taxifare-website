@@ -1,5 +1,6 @@
 import streamlit as st
 import datetime
+import requests
 
 url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
 
@@ -33,6 +34,8 @@ params['pickup_longitude'] = pickup_longitude
 params['passenger_count'] = passenger_count
 
 response = requests.get(url, params=params)
+data = response.json()
+print(data)
 
 
 
