@@ -9,7 +9,7 @@ url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
 today = datetime.date.today()
 
 st.markdown("""
-    ## Wanna take a ride?
+    ### Wanna take a ride?
 """)
 
 col1, col2, col3 = st.columns(3)
@@ -82,7 +82,7 @@ if st.session_state.point_b:
 output = st_folium(
     m,
     center=[40.783282, -73.950],
-    zoom=14,
+    zoom=12,
     key="multi_click_map",
     width=700,
     height=500
