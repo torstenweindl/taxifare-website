@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import requests
+import pandas as pd
 
 url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
 
@@ -39,8 +40,10 @@ params['pickup_longitude'] = pickup_longitude
 params['pickup_latitude'] = pickup_latitude
 params['dropoff_longitude'] = dropoff_longitude
 params['dropoff_latitude'] = dropoff_latitude
-params['pickup_longitude'] = pickup_longitude
 params['passenger_count'] = passenger_count
+
+
+map_data = pd.DataFrame(pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude)
 
 
 # just hardcoding temporarily
