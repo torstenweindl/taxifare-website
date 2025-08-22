@@ -37,15 +37,28 @@ with col4:
     dropoff_latitude = st.slider('DROPOFF latitude', min_value=40.58, max_value=40.78, step=0.000001, value=40.769802)
 # passenger_count = st.number_input('Please tell me the number of passengers')
 
-passenger_count = st.slider('# Passengers', 1, 10, 1)
+col1, col2 = st.columns(2)
+with col1:
+    passenger_count = st.slider('# Passengers', 1, 10, 1)
+with col2:
 
-params = {}
-params['pickup_datetime'] = date_time
-params['pickup_longitude'] = pickup_longitude
-params['pickup_latitude'] = pickup_latitude
-params['dropoff_longitude'] = dropoff_longitude
-params['dropoff_latitude'] = dropoff_latitude
-params['passenger_count'] = passenger_count
+    params = {}
+    params['pickup_datetime'] = date_time
+    params['pickup_longitude'] = pickup_longitude
+    params['pickup_latitude'] = pickup_latitude
+    params['dropoff_longitude'] = dropoff_longitude
+    params['dropoff_latitude'] = dropoff_latitude
+    params['passenger_count'] = passenger_count
+
+    response = requests.get(url, params=params)
+    data = response.json()
+    fare = round(float(data['fare']),2)
+    output_text = f"""
+           Your taxi fare will approximately be:
+    """
+    st.write(output_text)
+    st.markdown(f"# {fare} USD")
+
 
 
 map_data_dict = {
@@ -61,19 +74,8 @@ st.map(map_data)
 # params['pickup_datetime'] = '2014-07-06 19:18:00'
 
 
-response = requests.get(url, params=params)
-data = response.json()
+
 
 
 # st.write(data)
 # st.write(response.status_code)
-
-fare = round(float(data['fare']),2)
-
-output_text = f"""
-       Your taxi fare will approximately be:
-  """
-
-st.write(output_text)
-
-st.markdown(f"# {fare} USD")
