@@ -110,15 +110,14 @@ if output and 'last_clicked' in output:
             st.rerun()
 
 
-params = {}
-params['pickup_datetime'] = date_time
-params['pickup_longitude'] = st.session_state.point_a['lng']
-params['pickup_latitude'] = st.session_state.point_a['lat']
-params['dropoff_longitude'] = st.session_state.point_b['lng']
-params['dropoff_latitude'] = st.session_state.point_b['lat']
-params['passenger_count'] = passenger_count
-
 if st.session_state.point_a and st.session_state.point_b:
+    params = {}
+    params['pickup_datetime'] = date_time
+    params['pickup_longitude'] = st.session_state.point_a['lng']
+    params['pickup_latitude'] = st.session_state.point_a['lat']
+    params['dropoff_longitude'] = st.session_state.point_b['lng']
+    params['dropoff_latitude'] = st.session_state.point_b['lat']
+    params['passenger_count'] = passenger_count
     response = requests.get(url, params=params)
     data = response.json()
     fare = round(float(data['fare']),2)
