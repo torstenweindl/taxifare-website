@@ -22,16 +22,16 @@ with col2:
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    pickup_longitude = st.number_input('Please insert PICKUP longitude')
+    pickup_longitude = st.number_input('PICKUP longitude')
 with col2:
-    pickup_latitude = st.number_input('Please insert PICKUP latitude')
+    pickup_latitude = st.number_input('PICKUP latitude')
 with col3:
-    dropoff_longitude = st.number_input('Please insert DROPOFF longitude')
+    dropoff_longitude = st.number_input('DROPOFF longitude')
 with col4:
-    dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
+    dropoff_latitude = st.number_input('DROPOFF latitude')
 # passenger_count = st.number_input('Please tell me the number of passengers')
 
-passenger_count = st.slider('Select number of passengers', 1, 10, 1)
+passenger_count = st.slider('# Passengers', 1, 10, 1)
 
 params = {}
 params['pickup_datetime'] = date_time
