@@ -2,7 +2,7 @@ import streamlit as st
 import datetime
 import requests
 import pandas as pd
-from streamlit_folium import st_folium
+import st_folium
 import folium
 
 url = 'https://taxifaretorstenweindl-248422586834.europe-west1.run.app/predict'
