@@ -24,7 +24,7 @@ col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     # pickup_longitude = st.number_input('PICKUP longitude', value=-73.950655)
-    pickup_longitude = st.slider('PICKUP longitude', min_value=-74, max_value=-73, step=0.1, value=-73.95)
+    pickup_longitude = st.slider('PICKUP longitude', min_value=-74, max_value=-73, step=0.01, value=-73.95)
 with col2:
     # pickup_latitude = st.number_input('PICKUP latitude', value=40.783282)
     pickup_latitude = st.slider('PICKUP latitude', 40, 41, 1)
