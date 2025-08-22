@@ -11,11 +11,9 @@ date = st.date_input(
     "Please tell me the pickup date:",
     datetime.date(2019, 7, 6))
 
-# print(date)
-
 time = st.time_input('Please tell me the pickup time:', datetime.time(8, 45))
 
-# print(time)
+date_time = date + " " + time
 
 pickup_longitude = st.number_input('Please insert PICKUP longitude')
 pickup_latitude = st.number_input('Please insert PICKUP latitude')
@@ -26,7 +24,7 @@ dropoff_latitude = st.number_input('Please insert DROPOFF latitude')
 passenger_count = st.slider('Select number of passengers', 1, 10, 1)
 
 params = {}
-params['pickup_time'] = date
+params['pickup_time'] = date_time
 params['pickup_longitude'] = pickup_longitude
 params['pickup_latitude'] = pickup_latitude
 params['dropoff_longitude'] = dropoff_longitude
