@@ -39,7 +39,7 @@ with col4:
 
 col1, col2 = st.columns(2)
 with col1:
-    passenger_count = st.slider('# Passengers', 1, 10, 1)
+    passenger_count = st.number_input('# Passengers', value=1)
 with col2:
 
     params = {}
