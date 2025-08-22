@@ -25,14 +25,6 @@ with col1:
     passenger_count = st.number_input('# Passengers', value=1)
 with col2:
 
-    params = {}
-    params['pickup_datetime'] = date_time
-    params['pickup_longitude'] = pickup_longitude
-    params['pickup_latitude'] = pickup_latitude
-    params['dropoff_longitude'] = dropoff_longitude
-    params['dropoff_latitude'] = dropoff_latitude
-    params['passenger_count'] = passenger_count
-
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -49,6 +41,14 @@ with col4:
     # dropoff_latitude = st.number_input('DROPOFF latitude', value=40.769802)
     dropoff_latitude = st.slider('DROPOFF latitude', min_value=40.58, max_value=40.78, step=0.000001, value=40.769802)
 # passenger_count = st.number_input('Please tell me the number of passengers')
+
+params = {}
+params['pickup_datetime'] = date_time
+params['pickup_longitude'] = pickup_longitude
+params['pickup_latitude'] = pickup_latitude
+params['dropoff_longitude'] = dropoff_longitude
+params['dropoff_latitude'] = dropoff_latitude
+params['passenger_count'] = passenger_count
 
 response = requests.get(url, params=params)
 data = response.json()
