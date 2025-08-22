@@ -1,8 +1,13 @@
 import streamlit as st
 
-'''
-# TaxiFareModel front
-'''
+
+date = st.number_input('Please insert a date')
+pickup_longitude = st.number_input('Please insert pickup_longitude')
+pickup_latitude = st.number_input('Please insert pickup_latitude')
+dropoff_longitude = st.number_input('Please insert dropoff longitude')
+dropoff_latitude = st.number_input('Please insert dropoff_latitude')
+passenger_count = st.number_input('Please tell me the number of passengers')
+
 
 st.markdown('''
 Remember that there are several ways to output content into your web page...
