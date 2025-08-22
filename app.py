@@ -49,6 +49,6 @@ st.write(data['fare'])
 
 # output_text = f"""
   #      Your taxi fare will approximately be {fare} USD.
-    """
+   # """
 
 # st.write(output_text)
